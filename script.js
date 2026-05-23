@@ -1,8 +1,8 @@
 // =========================================================================
-// CONFIGURAÇÃO DO SUPABASE (Sua chave exata já está aqui)
+// CONFIGURAÇÃO DO SUPABASE (Seguro - Lê do env.js)
 // =========================================================================
-const supabaseUrl = 'https://gxopzifgtiyhelqdnyqu.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4b3B6aWZndGl5aGVscWRueXF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0ODI2MDMsImV4cCI6MjA5NTA1ODYwM30.SwcU2yw5unb7fZR3Vr76iAaYHL7RKsg_FOpT0H8cY7Y';
+const supabaseUrl = window.ENV?.SUPABASE_URL || '';
+const supabaseKey = window.ENV?.SUPABASE_KEY || '';
 const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
 // 1. DADOS DAS QUESTÕES
