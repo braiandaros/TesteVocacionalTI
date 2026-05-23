@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Vocacional TI - CEET Giuseppe Altoé</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+            <div class="logo-area">
+                <span class="badge-ceet">CEET Giuseppe Altoé</span>
+            </div>
+            <h1>Teste Vocacional de TI</h1>
+            <p class="subtitle">Descubra seu futuro profissional com base na nossa Matriz Curricular</p>
+        </header>
+
+        <main class="card animate-fade-in">
+            
+            <section id="step-register" class="step-section active">
+                <div class="section-title">
+                    <h2>Identificação</h2>
+                    <p>Preencha os campos abaixo para iniciarmos o teste.</p>
+                </div>
+                <form id="form-register" onsubmit="startQuiz(event)">
+                    <div class="form-group">
+                        <label for="user-name">Nome Completo</label>
+                        <input type="text" id="user-name" placeholder="Ex: João Silva" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="user-age">Idade</label>
+                            <input type="number" id="user-age" placeholder="Ex: 17" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-phone">WhatsApp/Contato</label>
+                            <input type="tel" id="user-phone" placeholder="Ex: (27) 99999-9999" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Começar Teste</button>
+                </form>
+            </section>
+
+            <section id="step-quiz" class="step-section">
+                <div class="quiz-progress-container">
+                    <div class="progress-text">Questão <span id="current-question-num">1</span> de 14</div>
+                    <div class="progress-bar-bg">
+                        <div id="progress-bar-fill" class="progress-bar-fill"></div>
+                    </div>
+                </div>
+                <div class="question-box">
+                    <h3 id="question-text">Carregando pergunta...</h3>
+                    <div id="alternatives-container" class="alternatives-list">
+                        </div>
+                </div>
+            </section>
+
+            <section id="step-result" class="step-section">
+                <div class="result-header">
+                    <div class="result-image-container">
+                        <img id="res-area-img" src="" alt="Badge da Área">
+                    </div>
+                    <div class="congrats-section">
+                        <span class="congrats-main">Parabéns, <span id="res-user-name" class="user-highlight"></span>! 🎉</span>
+                        <span class="congrats-sub">Com base no seu perfil, o resultado tecnológico ideal para você é:</span>
+                    </div>
+                    <h2 id="res-area-title" class="area-highlight">Área</h2>
+                </div>
+
+                <div class="result-content">
+                    
+                    <div class="info-block">
+                        <h3>💡 O que é esta área?</h3>
+                        <p id="res-description-long">Descrição detalhada.</p>
+                    </div>
+
+                    <div class="info-block" style="border-left-color: var(--accent); background: #f0fdfa;">
+                        <h3>🎯 Perfil Ideal</h3>
+                        <p id="res-perfil">Carregando perfil...</p>
+                    </div>
+
+                    <div class="result-grid">
+                        <div class="result-card">
+                            <h3>🛠️ Atividades Principais</h3>
+                            <ul id="res-activities" class="list-custom"></ul>
+                        </div>
+                        <div class="result-card">
+                            <h3>🚀 Tecnologias que usará</h3>
+                            <ul id="res-techs" class="list-custom"></ul>
+                        </div>
+                    </div>
+
+                    <div class="result-grid">
+                        <div class="result-card">
+                            <h3>🗺️ Áreas de Atuação</h3>
+                            <ul id="res-atuacao" class="list-custom"></ul>
+                        </div>
+
+                        <div class="result-card market-card">
+                            <h3>💼 Mercado e Salários</h3>
+                            <div class="salary-box">
+                                <span class="salary-label">Média Salarial Estimada:</span>
+                                <span id="res-salary" class="salary-value"></span>
+                            </div>
+                            <h4>Panorama:</h4>
+                            <p id="res-opportunities"></p>
+                        </div>
+                    </div>
+
+                    <div class="result-card ceet-card">
+                        <h3>🏫 Diferencial do CEET</h3>
+                        <p id="res-ceet-info" style="margin-bottom: 12px;"></p>
+                        <h4>Disciplinas do curso:</h4>
+                        <ul id="res-disciplines" class="list-custom"></ul>
+                    </div>
+
+                </div>
+                
+                <button onclick="restartQuiz()" class="btn btn-secondary btn-block" style="margin-top: 30px;">Refazer Teste</button>
+            </section>
+
+        </main>
+        
+        <footer class="main-footer">
+            <p>&copy; 2026 - Desenvolvido para o Curso Técnico em Informática do CEET Giuseppe Altoé</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+</html>
