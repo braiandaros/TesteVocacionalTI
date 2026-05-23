@@ -179,3 +179,78 @@ input:focus { outline: none; border-color: var(--theme-color-solid); background-
 .salary-label { font-size: 0.9rem; color: #A0AEC0; font-weight: 500; display: block; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
 
 .main-footer { text-align: center; margin-top: 40px; font-size: 0.85rem; color: #4A5568; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   RESPONSIVIDADE AVANÇADA (SMARTPHONES E TABLETS)
+========================================================= */
+
+/* Para Tablets e Celulares maiores (até 768px) */
+@media (max-width: 768px) {
+    /* Diminui os espaços em branco laterais e verticais */
+    body { padding: 20px 15px; }
+    .card { padding: 40px 25px; min-height: auto; }
+
+    /* Reduz o tamanho dos textos grandes para não "vazar" da tela */
+    .main-header h1 { font-size: 1.8rem; }
+    .subtitle { font-size: 0.95rem; }
+    .section-title h2 { font-size: 1.5rem; }
+    .question-box h3 { font-size: 1.15rem; margin-bottom: 25px; }
+    
+    /* Organiza o formulário (um campo embaixo do outro) */
+    .form-row { grid-template-columns: 1fr; gap: 15px; }
+
+    /* Ajusta os botões das alternativas do quiz */
+    .alt-option { padding: 15px; gap: 12px; }
+    .alt-letter { min-width: 28px; height: 28px; font-size: 0.85rem; }
+    
+    /* A imagem do resultado fica menor para sobrar espaço */
+    .result-image-container { width: 180px; height: 180px; margin-bottom: 20px; }
+    
+    /* Ajusta os textos de parabéns */
+    .congrats-main { font-size: 1.4rem; text-align: center; }
+    .congrats-sub { text-align: center; font-size: 0.95rem; }
+    
+    /* O Título Elétrico diminui e quebra linha pro emoji se precisar */
+    .area-highlight { font-size: 1.8rem; flex-wrap: wrap; text-align: center; gap: 10px; }
+    .emoji-normal { font-size: 1.8rem; margin-top: 0; }
+    
+    /* O grid dos cards vira 1 coluna só (um embaixo do outro) */
+    .result-grid { grid-template-columns: 1fr; gap: 20px; }
+    
+    /* Ajuste da fonte dos salários */
+    .salary-value { font-size: 1.4rem; }
+}
+
+/* Para Celulares pequenos (até 480px, tipo iPhone SE) */
+@media (max-width: 480px) {
+    .card { padding: 30px 20px; }
+    
+    /* Ajustes refinados de título */
+    .main-header h1 { font-size: 1.6rem; }
+    .area-highlight { font-size: 1.5rem; }
+    .emoji-normal { font-size: 1.5rem; }
+
+    /* Botões um pouco menores para caber melhor o dedo */
+    .btn { padding: 14px 20px; font-size: 0.95rem; width: 100%; }
+    
+    /* Textos dos cartões menores */
+    .result-card h3 { font-size: 1.05rem; }
+    .list-custom li { font-size: 0.85rem; }
+}

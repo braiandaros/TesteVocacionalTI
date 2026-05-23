@@ -140,7 +140,7 @@ const areaDetails = {
     banco: {
         title: "Banco de Dados",
         emoji: "🗄️",
-        image: "Areas/BancoDeDados.jpeg",
+        image: "Areas/BancoDeDados.png",
         description: "Esta área foca na organização, armazenamento e segurança das informações de uma empresa. O profissional garante que os dados estejam sempre disponíveis e protegidos.",
         perfil: "Pessoas organizadas, com forte raciocínio lógico, atentas a detalhes e que gostam de lidar com grandes volumes de informações e estruturação de sistemas seguros.",
         activities: ["Modelagem de dados", "Criação de consultas SQL", "Otimização de performance", "Segurança da informação"],
@@ -155,7 +155,7 @@ const areaDetails = {
     backend: {
         title: "Desenvolvimento Backend",
         emoji: "🧠",
-        image: "Areas/DesenvolvimentoBackend.jpeg",
+        image: "Areas/DesenvolvimentoBackend.png",
         description: "É o 'cérebro' por trás dos sites e aplicativos. Cuida da lógica, dos servidores e de como as informações são processadas.",
         perfil: "Pessoas extremamente lógicas e focadas, que gostam de resolver problemas complexos nos bastidores, priorizando desempenho e segurança.",
         activities: ["Criação de APIs", "Integração com bancos de dados", "Segurança do lado do servidor", "Lógica de sistemas"],
@@ -170,7 +170,7 @@ const areaDetails = {
     mobile: {
         title: "Desenvolvimento Mobile",
         emoji: "📱",
-        image: "Areas/DesenvolvimentoMobile.jpeg",
+        image: "Areas/DesenvolvimentoMobile.png",
         description: "Especialista em criar aplicativos para smartphones e tablets, focando em performance e usabilidade móvel.",
         perfil: "Pessoas dinâmicas e criativas que gostam de inovação. Desejam criar produtos acessíveis direto na palma da mão do usuário.",
         activities: ["Criação de apps Android/iOS", "Consumo de APIs móveis", "Publicação nas lojas", "Interfaces touch"],
@@ -185,7 +185,7 @@ const areaDetails = {
     web: {
         title: "Desenvolvimento Web",
         emoji: "🌐",
-        image: "Areas/DesenvolvimentoWeb.jpeg",
+        image: "Areas/DesenvolvimentoWeb.png",
         description: "Responsável pela 'cara' dos sites. Cria a parte visual e interativa que o usuário final vê e utiliza no navegador.",
         perfil: "Pessoas visuais, atentas ao design e à experiência de uso. Gostam de ver o resultado imediato do seu código.",
         activities: ["Criação de layouts", "Interatividade com JavaScript", "Responsividade", "Consumo de APIs"],
@@ -200,7 +200,7 @@ const areaDetails = {
     engenharia: {
         title: "Engenharia de Software",
         emoji: "🏗️",
-        image: "Areas/EngenhariaDeSoftware.jpeg",
+        image: "Areas/EngenhariaDeSoftware.png",
         description: "Foca no planejamento e gestão do ciclo de vida do software, garantindo qualidade, prazos e organização da equipe.",
         perfil: "Pessoas comunicativas, organizadas e com perfil de liderança. Gostam de planejar e coordenar equipes.",
         activities: ["Levantamento de requisitos", "Gestão de projetos Ágeis", "Arquitetura de sistemas", "Liderança de equipes"],
@@ -215,7 +215,7 @@ const areaDetails = {
     manutencao: {
         title: "Manutenção e Suporte",
         emoji: "🔧",
-        image: "Areas/Manutencao.jpeg",
+        image: "Areas/Manutencao.png",
         description: "Lida com o hardware e a base de software. É quem garante que as máquinas e os sistemas operacionais estejam saudáveis.",
         perfil: "Pessoas práticas, investigativas e com perfil 'mão na massa'. Têm paciência e curiosidade para diagnosticar defeitos.",
         activities: ["Montagem de computadores", "Formatação de sistemas", "Troca de componentes", "Suporte ao usuário"],
@@ -230,7 +230,7 @@ const areaDetails = {
     redes: {
         title: "Profissional de Redes",
         emoji: "🌐🛡️",
-        image: "Areas/ProfissionalDeRedes.jpeg",
+        image: "Areas/ProfissionalDeRedes.png",
         description: "O arquiteto das conexões. Garante que a internet e as redes internas funcionem com velocidade e segurança total.",
         perfil: "Pessoas focadas, que valorizam a estabilidade, segurança e comunicação de dados. Gostam de arquitetar e gerenciar infraestruturas.",
         activities: ["Configuração de roteadores e switches", "Segurança de redes (Firewalls)", "Cabeamento estruturado", "Administração de servidores"],
