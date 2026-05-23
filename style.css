@@ -1,27 +1,29 @@
 /* =========================================================
-   PALETA DE CORES - DARK MODE PREMIUM (AGÊNCIA)
+   PALETA DE CORES BASE - MODO TESTE (AZUL E PRETO)
 ========================================================= */
 :root {
-    --bg-global: #000000; /* Preto Profundo */
-    --bg-card: #080808; /* Cinza Quase Preto para Cartões */
-    --primary-gradient: linear-gradient(135deg, #9966FF 0%, #CC99FF 100%); /* Roxo/Violeta Elétrico */
-    --accent-gradient: linear-gradient(135deg, #FF66FF 0%, #CC99FF 100%);
-    --border: rgba(153, 102, 255, 0.15); /* Borda roxa super sutil */
-    --text-primary: #FFFFFF; /* Branco Puro */
-    --text-secondary: #A0AEC0; /* Cinza Claro Metálico */
-    --shadow-purple: 0 8px 32px rgba(153, 102, 255, 0.08); /* Brilho de neon suave */
+    --bg-global: #000000;
+    --bg-card: #080808;
+    
+    /* VARIÁVEIS DINÂMICAS (Começam em AZUL para o teste) */
+    --theme-gradient: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%);
+    --theme-color-solid: #60A5FA;
+    --theme-border-glow: rgba(96, 165, 250, 0.2);
+    --theme-shadow: 0 8px 32px rgba(96, 165, 250, 0.1);
+    
+    --text-primary: #FFFFFF;
+    --text-secondary: #A0AEC0;
     --radius: 16px;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
     font-family: 'Inter', sans-serif;
-    /* Fundo escuro com dois "focos de luz" roxos suaves nos cantos */
     background: 
-        radial-gradient(circle at 15% 15%, rgba(153, 102, 255, 0.06) 0%, transparent 40%),
-        radial-gradient(circle at 85% 85%, rgba(204, 153, 255, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 15% 15%, var(--theme-border-glow) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, var(--theme-border-glow) 0%, transparent 40%),
         linear-gradient(135deg, #000000 0%, #050505 100%);
     background-color: var(--bg-global);
     color: var(--text-primary);
@@ -31,42 +33,33 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    transition: background 0.5s ease;
 }
 
 .container { width: 100%; max-width: 850px; }
 
-/* =========================================================
-   HEADER E FOOTER
-========================================================= */
+/* HEADER */
 .main-header { text-align: center; margin-bottom: 40px; color: var(--text-primary); }
 .badge-ceet {
     background: #0a0a0a;
-    border: 1px solid var(--border);
-    color: #CC99FF;
-    padding: 6px 16px;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    display: inline-block;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 10px rgba(153, 102, 255, 0.1);
+    border: 1px solid var(--theme-border-glow);
+    color: var(--theme-color-solid);
+    padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase; display: inline-block; margin-bottom: 15px;
+    box-shadow: 0 2px 10px var(--theme-border-glow);
+    transition: var(--transition);
 }
 .main-header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; }
 .subtitle { color: var(--text-secondary); font-size: 1.1rem; font-weight: 300; }
-.main-footer { text-align: center; margin-top: 40px; font-size: 0.85rem; color: #4A5568; }
 
-/* =========================================================
-   CARD PRINCIPAL
-========================================================= */
+/* CARD PRINCIPAL */
 .card {
-    background: var(--bg-card);
-    padding: 60px 50px;
+    background: var(--bg-card); padding: 60px 50px;
     border-radius: var(--radius);
-    border: 1px solid var(--border);
-    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.9), var(--shadow-purple);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.9), var(--theme-shadow);
     min-height: 400px;
+    transition: box-shadow 0.5s ease, border-color 0.5s ease;
 }
 @media (max-width: 600px) { .card { padding: 40px 25px; } }
 
@@ -78,9 +71,7 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* =========================================================
-   ETAPA 1: FORMULÁRIO
-========================================================= */
+/* FORMULÁRIO */
 .section-title { margin-bottom: 35px; }
 .section-title h2 { font-size: 1.8rem; font-weight: 700; color: var(--text-primary); }
 .section-title p { color: var(--text-secondary); font-size: 1rem; margin-top: 5px; }
@@ -97,7 +88,7 @@ input {
     font-family: inherit; transition: var(--transition); 
 }
 input::placeholder { color: #4A5568; }
-input:focus { outline: none; border-color: #9966FF; background-color: #111111; box-shadow: 0 0 0 4px rgba(153, 102, 255, 0.15); }
+input:focus { outline: none; border-color: var(--theme-color-solid); background-color: #111111; box-shadow: 0 0 0 4px var(--theme-border-glow); }
 
 /* BOTÕES */
 .btn {
@@ -105,19 +96,17 @@ input:focus { outline: none; border-color: #9966FF; background-color: #111111; b
     border: none; border-radius: 50px; cursor: pointer; transition: var(--transition);
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
 }
-.btn-primary { background: var(--primary-gradient); color: #000000; margin-top: 10px; }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(153, 102, 255, 0.35); }
-.btn-secondary { background-color: transparent; border: 1px solid #9966FF; color: #CC99FF; margin-top: 40px; }
-.btn-secondary:hover { background-color: rgba(153, 102, 255, 0.1); }
+.btn-primary { background: var(--theme-gradient); color: #000000; margin-top: 10px; }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 20px var(--theme-border-glow); }
+.btn-secondary { background-color: transparent; border: 1px solid var(--theme-color-solid); color: var(--theme-color-solid); margin-top: 40px; }
+.btn-secondary:hover { background-color: var(--theme-border-glow); }
 .btn-block { width: 100%; }
 
-/* =========================================================
-   ETAPA 2: QUIZ
-========================================================= */
+/* QUIZ PROGRESSO */
 .quiz-progress-container { margin-bottom: 40px; }
 .progress-text { font-size: 0.9rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 12px; text-align: right; }
 .progress-bar-bg { height: 8px; background-color: #1A1A1A; border-radius: 50px; overflow: hidden; }
-.progress-bar-fill { height: 100%; background: var(--primary-gradient); border-radius: 50px; transition: width 0.4s ease; width: 0%; box-shadow: 0 0 10px rgba(153, 102, 255, 0.5); }
+.progress-bar-fill { height: 100%; background: var(--theme-gradient); border-radius: 50px; transition: width 0.4s ease; width: 0%; box-shadow: 0 0 10px var(--theme-border-glow); }
 
 .question-box h3 { font-size: 1.4rem; font-weight: 500; color: var(--text-primary); margin-bottom: 30px; line-height: 1.5; }
 .alternatives-list { display: flex; flex-direction: column; gap: 16px; }
@@ -127,46 +116,48 @@ input:focus { outline: none; border-color: #9966FF; background-color: #111111; b
     padding: 20px; font-size: 1rem; text-align: left; cursor: pointer;
     transition: var(--transition); display: flex; align-items: flex-start; gap: 16px; color: var(--text-secondary);
 }
-.alt-option:hover { border-color: #9966FF; background-color: #111111; transform: translateY(-2px); color: var(--text-primary); box-shadow: var(--shadow-purple); }
+.alt-option:hover { border-color: var(--theme-color-solid); background-color: #111111; transform: translateY(-2px); color: var(--text-primary); box-shadow: var(--theme-shadow); }
 .alt-letter {
     background-color: #1A1A1A; color: #718096; font-weight: 700; min-width: 32px;
     height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.05);
 }
-.alt-option:hover .alt-letter { background: var(--primary-gradient); color: #000; border: none; }
+.alt-option:hover .alt-letter { background: var(--theme-gradient); color: #000; border: none; }
 .alt-text { font-weight: 400; padding-top: 4px; line-height: 1.5; }
 
-/* =========================================================
-   ETAPA 3: RESULTADOS
-========================================================= */
+/* RESULTADOS E CORREÇÃO DOS EMOJIS */
 .result-header { text-align: center; margin-bottom: 50px; }
-.result-image-container {
-    width: 260px; height: 260px; margin: 0 auto 30px;
-    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5));
-}
+.result-image-container { width: 260px; height: 260px; margin: 0 auto 30px; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5)); }
 .result-image-container img { width: 100%; height: 100%; object-fit: contain; border-radius: 20px; }
 
 .congrats-section { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 15px; }
 .congrats-main { font-size: 1.8rem; font-weight: 700; color: var(--text-primary); }
-
-/* Apenas o Nome ganha a cor roxa, o emoji no HTML não é afetado */
-.user-highlight { background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; }
+.user-highlight { background: var(--theme-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; }
 .congrats-sub { font-size: 1rem; color: var(--text-secondary); font-weight: 400; line-height: 1.5; margin-bottom: 5px; }
 
-/* Título principal do resultado com degradê elétrico */
+/* Contêiner do Título (Removemos o gradient daqui para não pintar o emoji) */
 .area-highlight {
     font-size: 2.8rem; 
-    background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
     margin-top: 5px; font-weight: 800; letter-spacing: -1px;
+    display: flex; align-items: center; justify-content: center; gap: 15px;
 }
 
-/* =========================================================
-   BLOCOS E LISTAS DO RESULTADO (FORÇANDO DARK MODE)
-========================================================= */
-/* O [style] anula aquele fundo branco/ciano que estava fixo no HTML */
+/* Nova classe que o JS vai usar apenas para o Texto */
+.text-gradient {
+    background: var(--theme-gradient); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+}
+
+/* Nova classe que o JS vai usar apenas para o Emoji */
+.emoji-normal {
+    -webkit-text-fill-color: initial; /* Fallback mágico: Impede o emoji de ser pintado */
+}
+
+/* BLOCOS E LISTAS */
 .info-block, .info-block[style] {
-    background: #0d0d0d !important; padding: 25px; border-radius: 12px;
-    margin-bottom: 25px; border: 1px solid var(--border) !important;
-    border-left: 4px solid #9966FF !important;
+    background: #0d0d0d !important; padding: 25px; border-radius: 12px; margin-bottom: 25px; 
+    border: 1px solid var(--theme-border-glow) !important;
+    border-left: 4px solid var(--theme-color-solid) !important;
 }
 .info-block h3 { margin-bottom: 12px; color: var(--text-primary); font-size: 1.2rem; }
 .info-block p { color: var(--text-secondary); font-size: 1rem; }
@@ -174,20 +165,17 @@ input:focus { outline: none; border-color: #9966FF; background-color: #111111; b
 .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
 @media (max-width: 768px) { .result-grid { grid-template-columns: 1fr; } }
 
-.result-card { background: #0d0d0d; padding: 25px; border: 1px solid var(--border); border-radius: 12px; }
-.result-card h3 { font-size: 1.15rem; font-weight: 600; color: #CC99FF; margin-bottom: 20px; }
+.result-card { background: #0d0d0d; padding: 25px; border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; }
+.result-card h3 { font-size: 1.15rem; font-weight: 600; color: var(--theme-color-solid); margin-bottom: 20px; }
 .result-card h4 { font-size: 1rem; color: var(--text-primary); margin: 20px 0 10px; }
 .result-card p { font-size: 0.95rem; color: var(--text-secondary); }
 
 .list-custom { list-style: none; padding: 0; }
-.list-custom li {
-    padding: 12px 0; font-size: 0.95rem; border-bottom: 1px dashed #222;
-    display: flex; align-items: flex-start; gap: 12px; color: var(--text-secondary);
-}
+.list-custom li { padding: 12px 0; font-size: 0.95rem; border-bottom: 1px dashed #222; display: flex; align-items: flex-start; gap: 12px; color: var(--text-secondary); }
 .list-custom li:last-child { border-bottom: none; }
-.list-custom li::before { content: "✔"; color: #9966FF; font-weight: bold; }
+.list-custom li::before { content: "✔"; color: var(--theme-color-solid); font-weight: bold; }
 
-/* Ajustando a caixa de salário preta do JS para o novo visual */
-.salary-box { background: #111111; border: 1px solid var(--border); padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: left; }
+.salary-box { background: #111111; border: 1px solid var(--theme-border-glow); padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: left; }
 .salary-label { font-size: 0.9rem; color: #A0AEC0; font-weight: 500; display: block; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
-/* O texto "Jr, Pleno, Sênior" gerado pelo seu JS vai herdar a fonte corretamente aqui */
+
+.main-footer { text-align: center; margin-top: 40px; font-size: 0.85rem; color: #4A5568; }

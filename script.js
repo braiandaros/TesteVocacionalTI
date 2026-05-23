@@ -1,7 +1,6 @@
 // =========================================================================
-// CONFIGURAÇÃO DO SUPABASE
+// CONFIGURAÇÃO DO SUPABASE (Sua chave exata já está aqui)
 // =========================================================================
-// COLE SUA URL E CHAVE ANON AQUI
 const supabaseUrl = 'https://gxopzifgtiyhelqdnyqu.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4b3B6aWZndGl5aGVscWRueXF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0ODI2MDMsImV4cCI6MjA5NTA1ODYwM30.SwcU2yw5unb7fZR3Vr76iAaYHL7RKsg_FOpT0H8cY7Y';
 const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
@@ -136,119 +135,112 @@ const questions = [
     }
 ];
 
-// 2. DETALHES DAS ÁREAS
+// 2. DETALHES DAS ÁREAS - AQUI SEPARAMOS O TEXTO DO EMOJI! E ADICIONAMOS AS CORES
 const areaDetails = {
     banco: {
         title: "Banco de Dados",
+        emoji: "🗄️",
         image: "Areas/BancoDeDados.jpeg",
         description: "Esta área foca na organização, armazenamento e segurança das informações de uma empresa. O profissional garante que os dados estejam sempre disponíveis e protegidos.",
         perfil: "Pessoas organizadas, com forte raciocínio lógico, atentas a detalhes e que gostam de lidar com grandes volumes de informações e estruturação de sistemas seguros.",
         activities: ["Modelagem de dados", "Criação de consultas SQL", "Otimização de performance", "Segurança da informação"],
         techs: ["MySQL", "PostgreSQL", "Oracle", "MongoDB", "SQL Server"],
         atuacao: ["Administrador de Banco de Dados (DBA)", "Analista de Dados", "Engenheiro de Dados", "Especialista em BI"],
-        salary: "<span style='font-size:1.1rem; display:block; text-align:left; color:#065f46; font-weight:600; line-height:1.5;'>" +
-                "• Jr: R$ 4.000,00<br>" +
-                "• Pleno: R$ 7.500,00<br>" +
-                "• Sênior: R$ 13.000,00+</span>",
+        salary: "<span style='font-size:1.1rem; display:block; text-align:left; color:#A0AEC0; font-weight:600; line-height:1.5;'>• Jr: R$ 4.000,00<br>• Pleno: R$ 7.500,00<br>• Sênior: R$ 13.000,00+</span>",
         opportunities: "Mercado em expansão devido ao Big Data. Empresas precisam de profissionais para gerenciar dados massivos.",
         ceetInfo: "No Módulo II você aprende a base com 'Projeto de Banco de Dados', essencial para qualquer sistema moderno.",
-        disciplines: ["Projeto de Banco de Dados", "Estrutura de Dados", "Análise de Sistemas"]
+        disciplines: ["Projeto de Banco de Dados", "Estrutura de Dados", "Análise de Sistemas"],
+        colorTheme: { solid: "#164DF0", gradient: "linear-gradient(135deg, #0D3BC2 0%, #164DF0 100%)" }
     },
     backend: {
         title: "Desenvolvimento Backend",
+        emoji: "🧠",
         image: "Areas/DesenvolvimentoBackend.jpeg",
         description: "É o 'cérebro' por trás dos sites e aplicativos. Cuida da lógica, dos servidores e de como as informações são processadas.",
         perfil: "Pessoas extremamente lógicas e focadas, que gostam de resolver problemas complexos nos bastidores, priorizando desempenho e segurança.",
         activities: ["Criação de APIs", "Integração com bancos de dados", "Segurança do lado do servidor", "Lógica de sistemas"],
         techs: ["Node.js", "Python", "PHP", "Java", "C#"],
         atuacao: ["Desenvolvedor Backend", "Analista de Sistemas", "Arquiteto de Software", "Especialista em APIs e Integrações"],
-        salary: "<span style='font-size:1.1rem; display:block; text-align:left; color:#065f46; font-weight:600; line-height:1.5;'>" +
-                "• Jr: R$ 3.800,00<br>" +
-                "• Pleno: R$ 7.000,00<br>" +
-                "• Sênior: R$ 12.000,00+</span>",
+        salary: "<span style='font-size:1.1rem; display:block; text-align:left; color:#A0AEC0; font-weight:600; line-height:1.5;'>• Jr: R$ 3.800,00<br>• Pleno: R$ 7.000,00<br>• Sênior: R$ 12.000,00+</span>",
         opportunities: "Alta demanda por programadores que saibam construir a infraestrutura invisível dos aplicativos.",
         ceetInfo: "A disciplina de 'Lógica de Programação' e 'Programação Orientada a Objetos' são seus pilares aqui.",
-        disciplines: ["Lógica de Programação", "POO", "Estrutura de Dados", "Programação Web"]
+        disciplines: ["Lógica de Programação", "POO", "Estrutura de Dados", "Programação Web"],
+        colorTheme: { solid: "#70DE40", gradient: "linear-gradient(135deg, #51B924 0%, #70DE40 100%)" }
     },
     mobile: {
         title: "Desenvolvimento Mobile",
+        emoji: "📱",
         image: "Areas/DesenvolvimentoMobile.jpeg",
         description: "Especialista em criar aplicativos para smartphones e tablets, focando em performance e usabilidade móvel.",
         perfil: "Pessoas dinâmicas e criativas que gostam de inovação. Desejam criar produtos acessíveis direto na palma da mão do usuário.",
         activities: ["Criação de apps Android/iOS", "Consumo de APIs móveis", "Publicação nas lojas", "Interfaces touch"],
         techs: ["React Native", "Flutter", "Swift", "Kotlin", "Expo"],
         atuacao: ["Desenvolvedor de Aplicativos", "Especialista Android/iOS", "Engenheiro Mobile", "Criador de Soluções Cross-Platform"],
-        salary: "<span style='font-size:1.1rem; display:block; text-align:left; color:#065f46; font-weight:600; line-height:1.5;'>" +
-                "• Jr: R$ 4.000,00<br>" +
-                "• Pleno: R$ 7.200,00<br>" +
-                "• Sênior: R$ 12.500,00+</span>",
+        salary: "<span style='font-size:1.1rem; display:block; text-align:left; color:#A0AEC0; font-weight:600; line-height:1.5;'>• Jr: R$ 4.000,00<br>• Pleno: R$ 7.200,00<br>• Sênior: R$ 12.500,00+</span>",
         opportunities: "Um dos mercados que mais cresce, com muitas vagas remotas para quem domina frameworks modernos.",
         ceetInfo: "No Módulo IV você terá a disciplina exclusiva de 'Desenvolvimento para Dispositivos Móveis'.",
-        disciplines: ["Desenvolvimento Mobile", "POO", "IHM (Interface Humano-Máquina)"]
+        disciplines: ["Desenvolvimento Mobile", "POO", "IHM (Interface Humano-Máquina)"],
+        colorTheme: { solid: "#70DE40", gradient: "linear-gradient(135deg, #51B924 0%, #70DE40 100%)" }
     },
     web: {
         title: "Desenvolvimento Web",
+        emoji: "🌐",
         image: "Areas/DesenvolvimentoWeb.jpeg",
         description: "Responsável pela 'cara' dos sites. Cria a parte visual e interativa que o usuário final vê e utiliza no navegador.",
         perfil: "Pessoas visuais, atentas ao design e à experiência de uso. Gostam de ver o resultado imediato do seu código.",
         activities: ["Criação de layouts", "Interatividade com JavaScript", "Responsividade", "Consumo de APIs"],
         techs: ["HTML5", "CSS3", "JavaScript", "React", "Vue.js"],
         atuacao: ["Desenvolvedor Frontend", "Web Designer", "Desenvolvedor Fullstack", "Especialista em UI/UX"],
-        salary: "<span style='font-size:1.1rem; display:block; text-align:left; color:#065f46; font-weight:600; line-height:1.5;'>" +
-                "• Jr: R$ 3.500,00<br>" +
-                "• Pleno: R$ 6.500,00<br>" +
-                "• Sênior: R$ 11.000,00+</span>",
+        salary: "<span style='font-size:1.1rem; display:block; text-align:left; color:#A0AEC0; font-weight:600; line-height:1.5;'>• Jr: R$ 3.500,00<br>• Pleno: R$ 6.500,00<br>• Sênior: R$ 11.000,00+</span>",
         opportunities: "Toda empresa precisa de uma presença online. Excelente para trabalhos autônomos e agências.",
         ceetInfo: "Você verá isso em 'Fundamentos de Desenvolvimento Web' e 'Programação Web' nos módulos II e IV.",
-        disciplines: ["Fundamentos Web", "Programação Web", "Design de Interface"]
+        disciplines: ["Fundamentos Web", "Programação Web", "Design de Interface"],
+        colorTheme: { solid: "#9966FF", gradient: "linear-gradient(135deg, #8B5CF6 0%, #CC99FF 100%)" } // Roxo
     },
     engenharia: {
         title: "Engenharia de Software",
+        emoji: "🏗️",
         image: "Areas/EngenhariaDeSoftware.jpeg",
         description: "Foca no planejamento e gestão do ciclo de vida do software, garantindo qualidade, prazos e organização da equipe.",
         perfil: "Pessoas comunicativas, organizadas e com perfil de liderança. Gostam de planejar e coordenar equipes.",
         activities: ["Levantamento de requisitos", "Gestão de projetos Ágeis", "Arquitetura de sistemas", "Liderança de equipes"],
         techs: ["Metodologias Ágeis (Scrum)", "Git/GitHub", "UML", "Jira", "Trello"],
         atuacao: ["Engenheiro de Software", "Gestor de Projetos de TI", "Product Owner (PO)", "Analista de Requisitos"],
-        salary: "<span style='font-size:1.1rem; display:block; text-align:left; color:#065f46; font-weight:600; line-height:1.5;'>" +
-                "• Jr: R$ 4.500,00<br>" +
-                "• Pleno: R$ 8.000,00<br>" +
-                "• Sênior: R$ 14.000,00+</span>",
+        salary: "<span style='font-size:1.1rem; display:block; text-align:left; color:#A0AEC0; font-weight:600; line-height:1.5;'>• Jr: R$ 4.500,00<br>• Pleno: R$ 8.000,00<br>• Sênior: R$ 14.000,00+</span>",
         opportunities: "Papel crucial em médias e grandes empresas de tecnologia para garantir que o software seja entregue corretamente.",
         ceetInfo: "As matérias de 'Análise e Projetos de Sistemas' e 'Empreendedorismo' são cruciais para este perfil.",
-        disciplines: ["Análise de Sistemas", "Empreendedorismo", "Ética e Legislação"]
+        disciplines: ["Análise de Sistemas", "Empreendedorismo", "Ética e Legislação"],
+        colorTheme: { solid: "#24BDFF", gradient: "linear-gradient(135deg, #0A9CE3 0%, #24BDFF 100%)" }
     },
     manutencao: {
         title: "Manutenção e Suporte",
+        emoji: "🔧",
         image: "Areas/Manutencao.jpeg",
         description: "Lida com o hardware e a base de software. É quem garante que as máquinas e os sistemas operacionais estejam saudáveis.",
         perfil: "Pessoas práticas, investigativas e com perfil 'mão na massa'. Têm paciência e curiosidade para diagnosticar defeitos.",
         activities: ["Montagem de computadores", "Formatação de sistemas", "Troca de componentes", "Suporte ao usuário"],
         techs: ["Hardware", "Windows/Linux", "Drivers", "BIOS/UEFI", "Ferramentas de Diagnóstico"],
         atuacao: ["Técnico em Manutenção de Computadores", "Analista de Suporte (Helpdesk)", "Técnico em Hardware", "Supervisor de Infraestrutura Local"],
-        salary: "<span style='font-size:1.1rem; display:block; text-align:left; color:#065f46; font-weight:600; line-height:1.5;'>" +
-                "• Jr: R$ 2.000,00<br>" +
-                "• Pleno: R$ 3.500,00<br>" +
-                "• Sênior: R$ 5.000,00</span>",
+        salary: "<span style='font-size:1.1rem; display:block; text-align:left; color:#A0AEC0; font-weight:600; line-height:1.5;'>• Jr: R$ 2.000,00<br>• Pleno: R$ 3.500,00<br>• Sênior: R$ 5.000,00</span>",
         opportunities: "Excelente porta de entrada para o mercado. Toda empresa precisa de suporte técnico presencial ou remoto.",
         ceetInfo: "Logo no Módulo I você aprende 'Instalação e Manutenção', a base prática da profissão.",
-        disciplines: ["Instalação e Manutenção", "Sistemas Operacionais", "Aplicativos Computacionais"]
+        disciplines: ["Instalação e Manutenção", "Sistemas Operacionais", "Aplicativos Computacionais"],
+        colorTheme: { solid: "#F59E0B", gradient: "linear-gradient(135deg, #D97706 0%, #FBBF24 100%)" } // Amarelo
     },
     redes: {
         title: "Profissional de Redes",
+        emoji: "🌐🛡️",
         image: "Areas/ProfissionalDeRedes.jpeg",
         description: "O arquiteto das conexões. Garante que a internet e as redes internas funcionem com velocidade e segurança total.",
         perfil: "Pessoas focadas, que valorizam a estabilidade, segurança e comunicação de dados. Gostam de arquitetar e gerenciar infraestruturas.",
         activities: ["Configuração de roteadores e switches", "Segurança de redes (Firewalls)", "Cabeamento estruturado", "Administração de servidores"],
         techs: ["Cisco", "TCP/IP", "Wi-Fi", "Linux Server", "VPNs"],
         atuacao: ["Analista de Redes", "Administrador de Infraestrutura", "Especialista em Cibersegurança", "Analista Cloud Computing"],
-        salary: "<span style='font-size:1.1rem; display:block; text-align:left; color:#065f46; font-weight:600; line-height:1.5;'>" +
-                "• Jr: R$ 3.500,00<br>" +
-                "• Pleno: R$ 6.000,00<br>" +
-                "• Sênior: R$ 10.000,00+</span>",
+        salary: "<span style='font-size:1.1rem; display:block; text-align:left; color:#A0AEC0; font-weight:600; line-height:1.5;'>• Jr: R$ 3.500,00<br>• Pleno: R$ 6.000,00<br>• Sênior: R$ 10.000,00+</span>",
         opportunities: "Área essencial para corporações. Especializações em Cloud e Segurança da Informação estão em alta.",
         ceetInfo: "O CEET foca pesado nisso com 'Administração de Sistemas Operacionais de Rede' no Módulo IV.",
-        disciplines: ["Fundamentos de Redes", "Segurança da Informação", "Adm. de Sistemas de Rede"]
+        disciplines: ["Fundamentos de Redes", "Segurança da Informação", "Adm. de Sistemas de Rede"],
+        colorTheme: { solid: "#24BDFF", gradient: "linear-gradient(135deg, #0A9CE3 0%, #24BDFF 100%)" }
     }
 };
 
@@ -257,6 +249,17 @@ let userData = { name: "", age: "", phone: "" };
 let currentQuestionIndex = 0;
 let userScores = { redes: 0, web: 0, backend: 0, mobile: 0, engenharia: 0, manutencao: 0, banco: 0 };
 let isFinishing = false; // Trava contra cliques duplos
+
+// =========================================================================
+// FUNÇÃO PARA MUDAR A COR DO TEMA DINAMICAMENTE
+// =========================================================================
+function setAppTheme(solidColor, gradientStr) {
+    const root = document.documentElement;
+    root.style.setProperty('--theme-color-solid', solidColor);
+    root.style.setProperty('--theme-gradient', gradientStr);
+    root.style.setProperty('--theme-border-glow', `${solidColor}33`); 
+    root.style.setProperty('--theme-shadow', `0 8px 32px ${solidColor}26`); 
+}
 
 // 4. FUNÇÕES DE FLUXO
 function showSection(id) {
@@ -274,7 +277,7 @@ function startQuiz(event) {
 
     currentQuestionIndex = 0;
     userScores = { redes: 0, web: 0, backend: 0, mobile: 0, engenharia: 0, manutencao: 0, banco: 0 };
-    isFinishing = false; // Destrava para novo teste
+    isFinishing = false; 
 
     showSection('step-quiz');
     renderQuestion();
@@ -305,7 +308,7 @@ function renderQuestion() {
 }
 
 function handleAnswer(weights) {
-    if (isFinishing) return; // Se já estiver salvando, ignora o clique
+    if (isFinishing) return; 
 
     for (let key in weights) {
         if (userScores.hasOwnProperty(key)) {
@@ -315,9 +318,8 @@ function handleAnswer(weights) {
     
     currentQuestionIndex++;
     
-    // Verifica se acabaram as perguntas
     if (currentQuestionIndex >= questions.length) {
-        isFinishing = true; // Trava ativada!
+        isFinishing = true; 
         finishQuiz();
     } else {
         renderQuestion();
@@ -328,8 +330,17 @@ async function finishQuiz() {
     let winnerArea = Object.keys(userScores).reduce((a, b) => userScores[a] > userScores[b] ? a : b);
     const data = areaDetails[winnerArea];
 
+    // MÁGICA DAS CORES
+    setAppTheme(data.colorTheme.solid, data.colorTheme.gradient);
+
     document.getElementById('res-user-name').innerText = userData.name;
-    document.getElementById('res-area-title').innerText = data.title;
+    
+    // AQUI OCORRE A BLINDAGEM DO EMOJI: Injetamos o HTML com as classes específicas
+    document.getElementById('res-area-title').innerHTML = `
+        <span class="text-gradient">${data.title}</span> 
+        <span class="emoji-normal">${data.emoji}</span>
+    `;
+    
     document.getElementById('res-area-img').src = data.image;
     
     document.getElementById('res-description-long').innerText = data.description;
@@ -338,12 +349,12 @@ async function finishQuiz() {
     document.getElementById('res-opportunities').innerText = data.opportunities;
     document.getElementById('res-ceet-info').innerText = data.ceetInfo;
 
+    // Usando os IDs corretos do seu index.html original
     fillList('res-activities', data.activities);
     fillList('res-techs', data.techs);
     fillList('res-atuacao', data.atuacao);
     fillList('res-disciplines', data.disciplines);
 
-    // --- ENVIANDO DADOS PARA O SUPABASE ---
     try {
         const { error } = await supabaseClient
             .from('resultadosvocacionais') 
@@ -352,7 +363,7 @@ async function finishQuiz() {
                     nome: userData.name, 
                     idade: parseInt(userData.age), 
                     contato: userData.phone, 
-                    area_resultado: data.title 
+                    area_resultado: data.title // Agora ele salva limpo no banco (ex: "Desenvolvimento Web") sem emoji!
                 }
             ]);
 
@@ -361,13 +372,13 @@ async function finishQuiz() {
     } catch (error) {
         console.error("Erro ao inserir no banco Supabase:", error.message);
     }
-    // --------------------------------------
 
     showSection('step-result');
 }
 
 function fillList(elementId, items) {
     const el = document.getElementById(elementId);
+    if (!el) return;
     el.innerHTML = "";
     items.forEach(item => {
         const li = document.createElement('li');
@@ -377,6 +388,9 @@ function fillList(elementId, items) {
 }
 
 function restartQuiz() {
+    // Retorna a cor para Azul Escuro padrão ao refazer o teste
+    setAppTheme('#60A5FA', 'linear-gradient(135deg, #2563EB 0%, #60A5FA 100%)');
+    
     document.getElementById('form-register').reset();
     showSection('step-register');
 }
