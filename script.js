@@ -446,25 +446,62 @@ function renderHomeAreas() {
 renderHomeAreas();
 
 
+// =========================================================================
+// AUTOCOMPLETAR CIDADES (CUSTOMIZADO PARA FUNCIONAR BEM NO IPHONE/IOS)
+// =========================================================================
+let ibgeCities = []; // Array que vai guardar as cidades
+
 async function loadCities() {
     try {
-        // Busca municípios do Espírito Santo (ID 32)
-        // Se quiser do Brasil inteiro, troque a URL por: 'https://servicodados.ibge.gov.br/api/v1/localidades/municipios'
         const response = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados/32/municipios');
         const cities = await response.json();
-        
-        const dataList = document.getElementById('cities-list');
-        let optionsHtml = '';
-        
-        // Monta a lista de sugestões (Ex: Vargem Alta - ES)
-        cities.forEach(city => {
-            optionsHtml += `<option value="${city.nome} - ES"></option>`;
-        });
-        
-        dataList.innerHTML = optionsHtml;
+        // Guarda as cidades formatadas
+        ibgeCities = cities.map(city => `${city.nome} - ES`);
     } catch (error) {
         console.error("Erro ao carregar lista de cidades:", error);
     }
 }
-// Carrega as cidades assim que o script roda
 loadCities();
+
+const cityInput = document.getElementById('user-city');
+const suggestionsList = document.getElementById('city-suggestions');
+
+// Escuta a digitação do usuário
+cityInput.addEventListener('input', function() {
+    const inputValue = this.value.toLowerCase();
+    suggestionsList.innerHTML = ''; // Limpa a lista anterior
+
+    if (!inputValue) {
+        suggestionsList.style.display = 'none';
+        return;
+    }
+
+    // Filtra as cidades que contêm o que foi digitado
+    const filteredCities = ibgeCities.filter(city => city.toLowerCase().includes(inputValue));
+
+    if (filteredCities.length > 0) {
+        filteredCities.forEach(city => {
+            const li = document.createElement('li');
+            li.textContent = city;
+            
+            // Quando a pessoa clicar na cidade da lista
+            li.addEventListener('mousedown', function(e) {
+                e.preventDefault(); // Evita que o campo perca o foco antes do clique
+                cityInput.value = city;
+                suggestionsList.style.display = 'none';
+            });
+            
+            suggestionsList.appendChild(li);
+        });
+        suggestionsList.style.display = 'block'; // Mostra a lista
+    } else {
+        suggestionsList.style.display = 'none'; // Esconde se não achar nada
+    }
+});
+
+// Esconde a lista se o usuário clicar fora do campo
+document.addEventListener('click', function(e) {
+    if (e.target !== cityInput && e.target !== suggestionsList) {
+        suggestionsList.style.display = 'none';
+    }
+});
