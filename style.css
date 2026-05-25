@@ -271,7 +271,11 @@ input:focus { outline: none; border-color: var(--theme-color-solid); background-
 
 
 
-
+.classe-da-sua-lista {
+    position: relative;
+    z-index: 9999 !important;
+    width: 100%;
+}
 
 
 
