@@ -34,15 +34,29 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="user-age">Idade</label>
-                            <input type="number" id="user-age" placeholder="Ex: 17" required>
+                            <input type="number" id="user-age" placeholder="Ex: 17" min="1" max="99" required>
                         </div>
                         <div class="form-group">
                             <label for="user-phone">WhatsApp/Contato</label>
-                            <input type="tel" id="user-phone" placeholder="Ex: (27) 99999-9999" required>
+                            <input type="tel" id="user-phone" placeholder="Ex: (27) 99999-9999" maxlength="15" required>
                         </div>
                     </div>
+
+
+                    <div class="form-group">
+                        <label for="user-city">Cidade</label>
+                        <input type="text" id="user-city" list="cities-list" placeholder="Digite sua cidade" required>
+                        <datalist id="cities-list"></datalist>
+                    </div>
+
+
                     <button type="submit" class="btn btn-primary btn-block">Começar Teste</button>
                 </form>
+                <div class="home-areas-section">
+                    <h3 class="home-areas-title">Conheça as Carreiras Tecnológicas</h3>
+                    <div id="home-areas-container" class="home-areas-grid">
+                        </div>
+                </div>
             </section>
 
             <section id="step-quiz" class="step-section">
