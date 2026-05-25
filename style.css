@@ -271,12 +271,83 @@ input:focus { outline: none; border-color: var(--theme-color-solid); background-
 
 
 
-.classe-da-sua-lista {
+
+.autocomplete-container {
     position: relative;
-    z-index: 9999 !important;
     width: 100%;
 }
 
+.autocomplete-lista {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #111; /* Cor do fundo da sua tela */
+    border: 1px solid #333;
+    border-radius: 8px;
+    max-height: 200px; /* Altura máxima antes de criar rolagem */
+    overflow-y: auto;
+    z-index: 9999; /* Garante que fique por cima de tudo */
+    display: none; /* Começa escondida */
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.autocomplete-lista li {
+    padding: 12px 15px;
+    color: #fff;
+    cursor: pointer;
+    border-bottom: 1px solid #222;
+    font-family: sans-serif;
+}
+
+/* Quando o usuário tocar/passar o mouse */
+.autocomplete-lista li:hover, .autocomplete-lista li:active {
+    background: #4A90E2; /* Azul do seu botão */
+    color: #fff;
+}
+
+
+/* =========================================================
+   AUTOCOMPLETAR CUSTOMIZADO (MENU SUSPENSO DA CIDADE)
+========================================================= */
+.suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #0c0c0c;
+    border: 1px solid var(--theme-color-solid);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 1000; /* Fica por cima dos outros botões */
+    list-style: none;
+    display: none; /* Escondido por padrão */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.8);
+}
+
+.suggestions-list li {
+    padding: 14px 18px;
+    color: var(--text-primary);
+    cursor: pointer;
+    border-bottom: 1px solid #1A1A1A;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+
+.suggestions-list li:last-child {
+    border-bottom: none;
+}
+
+.suggestions-list li:hover, .suggestions-list li:active {
+    background: var(--theme-color-solid);
+    color: #000000;
+    font-weight: 500;
+}
 
 
 
