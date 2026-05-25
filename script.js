@@ -270,24 +270,35 @@ function showSection(id) {
 }
 
 // =========================================================================
-// FUNÇÃO PARA INICIAR O QUIZ COM TRAVA DE SEGURANÇA
+// FUNÇÃO PARA INICIAR O QUIZ COM TRAVAS DE SEGURANÇA MÁXIMAS
 // =========================================================================
 function startQuiz(event) {
     event.preventDefault();
     
-    // Captura os valores e o .trim() tira os espaços em branco das pontas
     const nameVal = document.getElementById('user-name').value.trim();
     const ageVal = document.getElementById('user-age').value.trim();
     const phoneVal = document.getElementById('user-phone').value.trim();
     const cityVal = document.getElementById('user-city').value.trim();
 
-    // TRAVA: Se a cidade (ou qualquer outro campo) estiver vazio, bloqueia aqui
+    // 1. TRAVA DE CAMPOS VAZIOS
     if (!nameVal || !ageVal || !phoneVal || !cityVal) {
-        alert("Por favor, preencha todos os campos obrigatórios, incluindo a sua cidade!");
-        return; // O 'return' faz a função parar e o teste não inicia
+        alert("Por favor, preencha todos os campos obrigatórios!");
+        return; 
     }
 
-    // Se passou na trava, guarda os dados e começa o teste
+    // 2. TRAVA DE NOME CURTO (Evita pessoas colocando apenas "A" ou "Y")
+    if (nameVal.length < 3) {
+        alert("Por favor, digite um nome válido para continuarmos.");
+        return;
+    }
+
+    // 3. TRAVA DE CIDADE REAL (Exige que seja uma cidade da lista do IBGE)
+    if (!ibgeCities.includes(cityVal)) {
+        alert("Por favor, selecione sua cidade clicando em uma das sugestões da lista (Ex: Vitória - ES).");
+        return;
+    }
+
+    // Se passou por todas as travas, guarda os dados e começa o teste!
     userData.name = nameVal;
     userData.age = ageVal;
     userData.phone = phoneVal;
