@@ -184,6 +184,92 @@ input:focus { outline: none; border-color: var(--theme-color-solid); background-
 
 
 
+/* =========================================================
+   LISTA DE ÁREAS NA TELA INICIAL (ESTILO CORRIGIDO)
+========================================================= */
+.home-areas-section {
+    margin-top: 45px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 35px;
+}
+
+.home-areas-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: var(--theme-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.home-areas-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.home-area-card {
+    background: #0c0c0c;
+    border: 1px solid #1A1A1A;
+    padding: 16px 20px;
+    border-radius: 12px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center; /* Centraliza verticalmente imagem e texto */
+    gap: 20px; /* Espaço entre a imagem e o texto */
+}
+
+.home-area-card:hover {
+    border-color: var(--theme-color-solid);
+    box-shadow: var(--theme-shadow);
+    transform: translateY(-2px);
+}
+
+/* Estilo da Imagem miniatura */
+.home-area-img {
+    width: 90px;  /* Aumentado de 65px para 90px */
+    height: 90px; /* Aumentado de 65px para 90px */
+    object-fit: contain;
+    border-radius: 10px; /* Borda um pouco mais arredondada para combinar */
+    flex-shrink: 0; 
+    background: #111111;
+    padding: 6px; /* Espaço interno um pouco maior */
+}
+
+.home-area-info {
+    flex: 1; /* Faz o texto ocupar o restante do espaço disponível */
+}
+
+.home-area-card h4 {
+    font-size: 1.05rem;
+    color: var(--theme-color-solid);
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.home-area-card p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* Responsividade para celulares bem pequenos */
+@media (max-width: 480px) {
+    .home-area-card {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .home-area-img {
+        width: 75px; /* Aumentado no celular de 50px para 75px */
+        height: 75px;
+    }
+}
+
+
 
 
 
@@ -253,4 +339,21 @@ input:focus { outline: none; border-color: var(--theme-color-solid); background-
     /* Textos dos cartões menores */
     .result-card h3 { font-size: 1.05rem; }
     .list-custom li { font-size: 0.85rem; }
+}
+
+@media (max-width: 425px) {
+    /* Centraliza o conteúdo inteiro do card (imagem no topo) */
+    .home-area-card {
+        flex-direction: column; /* Garante o layout vertical */
+        align-items: center;    /* Centraliza a imagem e o texto horizontalmente */
+        text-align: center;      /* Centraliza o texto dentro do bloco */
+        gap: 15px;               /* Ajusta o espaço */
+    }
+
+    /* Aumenta a imagem um pouco mais apenas nestas telas minúsculas */
+    .home-area-img {
+        width: 85px;  /* Aumentado de 75px para 85px, mais próximo do tamanho original de 90px */
+        height: 85px;
+        border-radius: 12px; /* Arredondamento ajustado proporcionalmente */
+    }
 }
