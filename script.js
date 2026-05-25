@@ -269,12 +269,29 @@ function showSection(id) {
     document.getElementById(id).classList.add('active');
 }
 
+// =========================================================================
+// FUNÇÃO PARA INICIAR O QUIZ COM TRAVA DE SEGURANÇA
+// =========================================================================
 function startQuiz(event) {
     event.preventDefault();
-    userData.name = document.getElementById('user-name').value;
-    userData.age = document.getElementById('user-age').value;
-    userData.phone = document.getElementById('user-phone').value;
-    userData.city = document.getElementById('user-city').value;
+    
+    // Captura os valores e o .trim() tira os espaços em branco das pontas
+    const nameVal = document.getElementById('user-name').value.trim();
+    const ageVal = document.getElementById('user-age').value.trim();
+    const phoneVal = document.getElementById('user-phone').value.trim();
+    const cityVal = document.getElementById('user-city').value.trim();
+
+    // TRAVA: Se a cidade (ou qualquer outro campo) estiver vazio, bloqueia aqui
+    if (!nameVal || !ageVal || !phoneVal || !cityVal) {
+        alert("Por favor, preencha todos os campos obrigatórios, incluindo a sua cidade!");
+        return; // O 'return' faz a função parar e o teste não inicia
+    }
+
+    // Se passou na trava, guarda os dados e começa o teste
+    userData.name = nameVal;
+    userData.age = ageVal;
+    userData.phone = phoneVal;
+    userData.city = cityVal;
 
     currentQuestionIndex = 0;
     userScores = { redes: 0, web: 0, backend: 0, mobile: 0, engenharia: 0, manutencao: 0, banco: 0 };
