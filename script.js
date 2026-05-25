@@ -35,12 +35,12 @@ const questions = [
         ]
     },
     {
-        text: "Olhando para as matérias iniciais do curso (Módulos I e II), o que parece mais legal de aprender primeiro?",
+        text: "Pensando no início da sua jornada na tecnologia, o que parece mais legal de aprender primeiro?",
         options: [
-            { text: "'Algoritmos e Lógica': aprender o passo a passo de como ensinar o computador a pensar e resolver problemas.", weights: { backend: 0.5, mobile: 0.5 } },
-            { text: "'Fundamentos de Redes' ou 'Manutenção': aprender a montar computadores e fazer a comunicação da internet funcionar.", weights: { redes: 0.5, manutencao: 0.5 } },
-            { text: "'Interação Humano-Máquina': entender como as pessoas usam a tecnologia e como facilitar a vida delas.", weights: { engenharia: 0.5, web: 0.5 } },
-            { text: "'Projeto de Banco de Dados': descobrir como gigantes como Google ou Instagram guardam milhões de fotos de forma organizada.", weights: { banco: 1 } }
+            { text: "Aprender o passo a passo de como ensinar o computador a pensar e resolver problemas (Lógica de Programação).", weights: { backend: 0.5, mobile: 0.5 } },
+            { text: "Aprender a montar computadores do zero e fazer a comunicação da internet funcionar (Hardware e Redes).", weights: { redes: 0.5, manutencao: 0.5 } },
+            { text: "Entender como as pessoas usam a tecnologia e como desenhar telas fáceis de usar (Design de Interfaces).", weights: { engenharia: 0.5, web: 0.5 } },
+            { text: "Descobrir como gigantes como Google ou Instagram guardam milhões de fotos de forma organizada (Banco de Dados).", weights: { banco: 1 } }
         ]
     },
     {
@@ -71,7 +71,7 @@ const questions = [
         ]
     },
     {
-        text: "No Módulo III, você vai aprender 'Linguagem de Programação'. O que você imagina que vai fazer com isso?",
+        text: "Quando você pensa em aprender uma 'Linguagem de Programação', o que você imagina construindo com ela?",
         options: [
             { text: "Digitar códigos que vão ser o 'cérebro' invisível por trás de aplicativos ou sistemas funcionarem perfeitamente.", weights: { backend: 0.5, mobile: 0.5 } },
             { text: "Aprender como esses códigos conseguem salvar e buscar milhares de informações super rápido sem travar.", weights: { banco: 1 } },
@@ -98,12 +98,12 @@ const questions = [
         ]
     },
     {
-        text: "Lendo as matérias do último módulo (Módulo IV), qual parece ser a sua 'formatura dos sonhos'?",
+        text: "Pensando na reta final do curso, qual parece ser o seu 'projeto de formatura dos sonhos'?",
         options: [
-            { text: "'Programação Web': sair do curso conseguindo criar sites modernos e completos do zero.", weights: { web: 1 } },
-            { text: "'Desenvolvimento para Dispositivos Móveis': sair do curso sabendo criar apps para celular.", weights: { mobile: 1 } },
-            { text: "'Administração de Redes': sair dominando como conectar e gerenciar todos os computadores de uma empresa.", weights: { redes: 1 } },
-            { text: "O 'Estágio': a chance de liderar uma equipe e juntar tudo o que aprendeu num projeto do mundo real.", weights: { engenharia: 1 } }
+            { text: "Sair do curso conseguindo criar sites modernos e plataformas web completas do zero.", weights: { web: 1 } },
+            { text: "Sair do curso sabendo criar aplicativos inovadores para celulares e tablets.", weights: { mobile: 1 } },
+            { text: "Sair dominando como conectar, proteger e gerenciar toda a infraestrutura de computadores de uma empresa.", weights: { redes: 1 } },
+            { text: "Ter a chance de liderar uma equipe e planejar a construção de um grande software do mundo real.", weights: { engenharia: 1 } }
         ]
     },
     {
@@ -245,7 +245,7 @@ const areaDetails = {
 };
 
 // 3. ESTADO DA APLICAÇÃO
-let userData = { name: "", age: "", phone: "" };
+let userData = { name: "", age: "", phone: "", city: "" };
 let currentQuestionIndex = 0;
 let userScores = { redes: 0, web: 0, backend: 0, mobile: 0, engenharia: 0, manutencao: 0, banco: 0 };
 let isFinishing = false; // Trava contra cliques duplos
@@ -274,6 +274,7 @@ function startQuiz(event) {
     userData.name = document.getElementById('user-name').value;
     userData.age = document.getElementById('user-age').value;
     userData.phone = document.getElementById('user-phone').value;
+    userData.city = document.getElementById('user-city').value;
 
     currentQuestionIndex = 0;
     userScores = { redes: 0, web: 0, backend: 0, mobile: 0, engenharia: 0, manutencao: 0, banco: 0 };
@@ -363,6 +364,7 @@ async function finishQuiz() {
                     nome: userData.name, 
                     idade: parseInt(userData.age), 
                     contato: userData.phone, 
+                    cidade: userData.city,
                     area_resultado: data.title // Agora ele salva limpo no banco (ex: "Desenvolvimento Web") sem emoji!
                 }
             ]);
@@ -394,3 +396,75 @@ function restartQuiz() {
     document.getElementById('form-register').reset();
     showSection('step-register');
 }
+
+// =========================================================================
+// MÁSCARA DE TELEFONE EM TEMPO REAL
+// =========================================================================
+document.getElementById('user-phone').addEventListener('input', (e) => {
+    let v = e.target.value.replace(/\D/g, ""); 
+    if (v.length > 11) v = v.slice(0, 11); 
+    v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
+    v = v.replace(/(\d)(\d{4})$/, "$1-$2");
+    e.target.value = v;
+});
+
+// =========================================================================
+// BLOQUEIO DE IDADE NEGATIVA E CARACTERES INVÁLIDOS
+// =========================================================================
+document.getElementById('user-age').addEventListener('input', (e) => {
+    // Remove qualquer coisa que não seja número (como o sinal de - ou a letra e)
+    let v = e.target.value.replace(/\D/g, ""); 
+    
+    // Limita a apenas 2 dígitos (ninguém tem 1000 anos)
+    if (v.length > 2) v = v.slice(0, 2); 
+    
+    e.target.value = v;
+});
+
+// =========================================================================
+// GERAR LISTA DE ÁREAS NA TELA INICIAL (COM IMAGEM)
+// =========================================================================
+function renderHomeAreas() {
+    const container = document.getElementById('home-areas-container');
+    if (!container) return;
+    container.innerHTML = "";
+    
+    for (let key in areaDetails) {
+        const area = areaDetails[key];
+        const card = document.createElement('div');
+        card.className = 'home-area-card';
+        card.innerHTML = `
+            <img src="${area.image}" alt="${area.title}" class="home-area-img">
+            <div class="home-area-info">
+                <h4>${area.title}</h4>
+                <p>${area.description}</p>
+            </div>
+        `;
+        container.appendChild(card);
+    }
+}
+renderHomeAreas();
+
+
+async function loadCities() {
+    try {
+        // Busca municípios do Espírito Santo (ID 32)
+        // Se quiser do Brasil inteiro, troque a URL por: 'https://servicodados.ibge.gov.br/api/v1/localidades/municipios'
+        const response = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados/32/municipios');
+        const cities = await response.json();
+        
+        const dataList = document.getElementById('cities-list');
+        let optionsHtml = '';
+        
+        // Monta a lista de sugestões (Ex: Vargem Alta - ES)
+        cities.forEach(city => {
+            optionsHtml += `<option value="${city.nome} - ES"></option>`;
+        });
+        
+        dataList.innerHTML = optionsHtml;
+    } catch (error) {
+        console.error("Erro ao carregar lista de cidades:", error);
+    }
+}
+// Carrega as cidades assim que o script roda
+loadCities();
