@@ -45,5 +45,6 @@ Devido à natureza dessas limitações técnicas:
 * **Tempo de Resposta:** É possível notar uma leve lentidão no carregamento inicial da aplicação, devido ao tempo de "acordar" (cold start) dos bancos de dados gratuitos após períodos de ociosidade.
 * **Uso:** O sistema foi projetado para uso acadêmico e demonstração de portfólio.
 
+[🖥️ Clique e acesse o Sistema no Vercel](https://teste-vocacional-ti.vercel.app/)
 ---
 *Desenvolvido por: Braian Junior Secchin Daros - https://github.com/braiandaros*
